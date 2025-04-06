@@ -6,6 +6,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
 } from "@/components/ui/carousel";
 
 const backgroundImages = [
@@ -15,7 +17,7 @@ const backgroundImages = [
 ];
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   
   const scrollToProperties = () => {
     const propertiesSection = document.getElementById('featured-properties');
@@ -26,7 +28,7 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
+      setActiveIndex((prev) => (prev + 1) % backgroundImages.length);
     }, 6000); // Change image every 6 seconds
     
     return () => clearInterval(interval);
@@ -34,27 +36,21 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen overflow-hidden">
-      <div className="absolute inset-0 z-10">
-        <Carousel className="h-full" opts={{ loop: true }}>
-          <CarouselContent className="h-full">
-            {backgroundImages.map((image, index) => (
-              <CarouselItem key={index} className="h-full">
-                <div 
-                  className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1500 ${
-                    currentSlide === index ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{ 
-                    backgroundImage: `url('${image}')`,
-                    backgroundPosition: "center 30%"
-                  }}
-                >
-                  <div className="absolute inset-0 bg-black/40"></div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
+      {/* Background Images */}
+      {backgroundImages.map((image, index) => (
+        <div 
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+            activeIndex === index ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ 
+            backgroundImage: `url('${image}')`,
+            backgroundPosition: "center 30%"
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+      ))}
       
       <div className="relative z-20 h-full zen-container flex flex-col justify-center items-start">
         <div className="max-w-2xl animate-fade-in">
@@ -85,9 +81,9 @@ const Hero = () => {
           {backgroundImages.map((_, index) => (
             <button 
               key={index} 
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => setActiveIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "bg-white scale-125" : "bg-white/40"
+                activeIndex === index ? "bg-white scale-125" : "bg-white/40"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
