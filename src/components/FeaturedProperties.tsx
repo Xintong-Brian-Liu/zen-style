@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import PropertyCard from "./PropertyCard";
 import { useState, useEffect } from "react";
@@ -6,18 +5,18 @@ import { useState, useEffect } from "react";
 const properties = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    title: "Tranquil Mountain Villa",
-    location: "Kyoto, Japan",
-    price: "$1,250,000",
-    bedrooms: 4,
-    bathrooms: 3,
-    sqft: 3200,
+    image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    title: "1170 Oxford St",
+    location: "Berkeley, CA 94707",
+    price: "$1,295,000",
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1456,
     featured: true,
-    yearBuilt: 2019,
-    lotSize: "0.75 acres",
-    propertyType: "Single Family",
-    description: "A serene mountain retreat featuring traditional Japanese design elements with modern amenities."
+    yearBuilt: 1924,
+    lotSize: "0.13 acres",
+    propertyType: "Single Family Residential",
+    description: "Charming Berkeley home with original hardwood floors, updated kitchen, and tranquil garden. Perfect for those seeking a peaceful retreat in the heart of the city."
   },
   {
     id: 2,
