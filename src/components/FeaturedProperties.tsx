@@ -146,6 +146,7 @@ const FeaturedProperties = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <PropertyCard
+                id={property.id}
                 image={property.image}
                 title={property.title}
                 location={property.location}
