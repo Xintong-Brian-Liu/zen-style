@@ -13,7 +13,11 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     sqft: 3200,
-    featured: true
+    featured: true,
+    yearBuilt: 2019,
+    lotSize: "0.75 acres",
+    propertyType: "Single Family",
+    description: "A serene mountain retreat featuring traditional Japanese design elements with modern amenities."
   },
   {
     id: 2,
@@ -24,7 +28,11 @@ const properties = [
     bedrooms: 3,
     bathrooms: 2,
     sqft: 2100,
-    featured: false
+    featured: false,
+    yearBuilt: 2021,
+    lotSize: "1.2 acres",
+    propertyType: "Cabin",
+    description: "Contemporary cabin nestled among towering pines, perfect for peaceful living."
   },
   {
     id: 3,
@@ -35,7 +43,56 @@ const properties = [
     bedrooms: 5,
     bathrooms: 4,
     sqft: 4500,
-    featured: false
+    featured: false,
+    yearBuilt: 2020,
+    lotSize: "2.1 acres",
+    propertyType: "Luxury Home",
+    description: "Stunning lakefront property with panoramic views and private beach access."
+  },
+  {
+    id: 4,
+    image: "https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    title: "Zen Garden Estate",
+    location: "Sedona, Arizona",
+    price: "$1,425,000",
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 3800,
+    featured: true,
+    yearBuilt: 2022,
+    lotSize: "1.5 acres",
+    propertyType: "Contemporary",
+    description: "Modern desert home with meditation gardens and red rock canyon views."
+  },
+  {
+    id: 5,
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    title: "Coastal Harmony House",
+    location: "Big Sur, California",
+    price: "$2,100,000",
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 2800,
+    featured: false,
+    yearBuilt: 2018,
+    lotSize: "3.0 acres",
+    propertyType: "Modern",
+    description: "Architectural masterpiece perched on coastal cliffs with endless ocean views."
+  },
+  {
+    id: 6,
+    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    title: "Minimalist Beach Retreat",
+    location: "Tulum, Mexico",
+    price: "$695,000",
+    bedrooms: 2,
+    bathrooms: 2,
+    sqft: 1800,
+    featured: false,
+    yearBuilt: 2023,
+    lotSize: "0.5 acres",
+    propertyType: "Beach House",
+    description: "Eco-friendly beachfront villa with sustainable design and private cenote access."
   }
 ];
 
@@ -96,6 +153,10 @@ const FeaturedProperties = () => {
                 bedrooms={property.bedrooms}
                 bathrooms={property.bathrooms}
                 sqft={property.sqft}
+                yearBuilt={property.yearBuilt}
+                lotSize={property.lotSize}
+                propertyType={property.propertyType}
+                description={property.description}
               />
               {property.featured && (
                 <div className="absolute top-4 right-4 bg-zen-moss text-white text-xs font-semibold px-2 py-1 rounded-sm">

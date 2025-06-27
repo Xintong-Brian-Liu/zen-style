@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bath, BedDouble, ArrowUpRight, MapPin } from 'lucide-react';
+import { Bath, BedDouble, ArrowUpRight, MapPin, Calendar, Square, Home } from 'lucide-react';
 
 interface PropertyCardProps {
   image: string;
@@ -10,6 +10,10 @@ interface PropertyCardProps {
   bedrooms: number;
   bathrooms: number;
   sqft: number;
+  yearBuilt?: number;
+  lotSize?: string;
+  propertyType?: string;
+  description?: string;
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
@@ -20,6 +24,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   bedrooms,
   bathrooms,
   sqft,
+  yearBuilt,
+  lotSize,
+  propertyType,
+  description,
 }) => {
   return (
     <div className="group bg-white hover-lift relative flex flex-col h-full zen-shadow overflow-hidden">
@@ -40,12 +48,16 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </span>
         </div>
         
-        <div className="flex items-center text-sm text-gray-500 mb-4">
+        <div className="flex items-center text-sm text-gray-500 mb-3">
           <MapPin className="w-4 h-4 mr-1" />
           <span>{location}</span>
         </div>
+
+        {description && (
+          <p className="text-sm text-gray-600 mb-4 line-clamp-2">{description}</p>
+        )}
         
-        <div className="flex border-t border-gray-100 pt-4 mt-auto">
+        <div className="flex border-t border-gray-100 pt-4 mb-4">
           <div className="flex items-center mr-4">
             <BedDouble className="w-4 h-4 text-zen-moss mr-1" />
             <span className="text-sm">{bedrooms} Beds</span>
@@ -57,12 +69,33 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </div>
           
           <div className="flex items-center">
-            <svg className="w-4 h-4 text-zen-moss mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H8M16 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H16M3 12H21M8 7V17M16 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <Square className="w-4 h-4 text-zen-moss mr-1" />
             <span className="text-sm">{sqft} sqft</span>
           </div>
         </div>
+
+        {(yearBuilt || lotSize || propertyType) && (
+          <div className="border-t border-gray-100 pt-4 space-y-2">
+            {propertyType && (
+              <div className="flex items-center text-sm text-gray-600">
+                <Home className="w-4 h-4 text-zen-moss mr-2" />
+                <span>{propertyType}</span>
+              </div>
+            )}
+            {yearBuilt && (
+              <div className="flex items-center text-sm text-gray-600">
+                <Calendar className="w-4 h-4 text-zen-moss mr-2" />
+                <span>Built in {yearBuilt}</span>
+              </div>
+            )}
+            {lotSize && (
+              <div className="flex items-center text-sm text-gray-600">
+                <Square className="w-4 h-4 text-zen-moss mr-2" />
+                <span>{lotSize} lot</span>
+              </div>
+            )}
+          </div>
+        )}
       </div>
       
       <div className="absolute top-4 left-4 bg-white px-3 py-1 text-zen-wood font-semibold rounded-sm">{price}</div>
