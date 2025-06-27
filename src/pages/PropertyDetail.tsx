@@ -21,10 +21,10 @@ const properties = {
     propertyType: "Single Family Residential",
     description: "Charming Berkeley home with original hardwood floors, updated kitchen, and tranquil garden. Perfect for those seeking a peaceful retreat in the heart of the city.",
     images: [
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      "/lovable-uploads/5eaa6421-de14-4e68-bc6b-4b3bffb13659.png",
+      "/lovable-uploads/539b4d47-e4c5-44b2-9998-5d1d2f93ef07.png",
+      "/lovable-uploads/34667c6b-9679-4da4-806d-f61f4f6a3f4c.png",
+      "/lovable-uploads/993ecd36-357a-4fda-ad93-3aec0c8557bb.png"
     ],
     details: {
       propertyType: "Single Family Residential",
